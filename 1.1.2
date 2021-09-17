@@ -1,0 +1,78 @@
+import turtle as trtl
+import turtle as ben
+import turtle as turt
+
+painter = trtl.Turtle()
+painter.hideturtle()
+painter1 = ben.Turtle()
+painter1.hideturtle()
+painter2 = turt.Turtle()
+painter2.hideturtle()
+
+painter.shape("square")
+painter1.shape("square")
+painter2.shape("square")
+
+painter.color("red")
+painter1.color("blue")
+painter2.color("green")
+
+painter.penup()
+painter1.penup()
+painter2.penup()
+
+painter.goto(-50,0)
+painter1.goto(0,0)
+painter2.goto(50,0)
+
+painter.pendown()
+painter1.pendown()
+painter2.pendown()
+
+painter.showturtle()
+painter1.showturtle()
+painter2.showturtle()
+
+color = input("Please Choose a Color")
+
+painter.hideturtle()
+painter1.hideturtle()
+painter2.hideturtle()
+
+painter.penup()
+painter1.penup()
+painter2.penup()
+
+painter.goto(-100,0)
+painter2.goto(100,0)
+
+painter.pencolor(color)
+painter1.pencolor(color)
+painter2.pencolor(color)
+
+painter.pendown()
+painter1.pendown()
+painter2.pendown()
+
+painter.left(90)
+painter.circle(25,180)
+painter.goto(-100,-50)
+painter.goto(-50,0)
+painter.left(180)
+painter.circle(25,180)
+painter1.left(90)
+painter1.circle(25,180)
+painter1.goto(0,-50)
+painter1.goto(50,0)
+painter1.left(180)
+painter1.circle(25,180)
+painter2.left(90)
+painter2.circle(25,180)
+painter2.goto(100,-50)
+painter2.goto(150,0)
+painter2.left(180)
+painter2.circle(25,180)
+
+
+wn = trtl.Screen()
+wn.mainloop()
