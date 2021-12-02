@@ -1,0 +1,101 @@
+#   a123_apple_and_letters.py
+
+import turtle as trt
+import turtle as trt2
+import random as rand
+
+apple_image = "apple.gif" # Store the file name of your shape
+
+wn = trt.Screen()
+wn.setup(width=1.0, height=1.0)
+wn.addshape(apple_image) # Make the screen aware of the new file    
+wn.bgpic("background.gif")
+
+apple = trt.Turtle()
+apple.penup()
+apple_x = apple.xcor()
+apple_y = -150
+
+writer = trt2.Turtle()
+writer.hideturtle()
+writer.penup()
+writer.pencolor("white")
+writer.goto(-20,125)
+
+y = -50
+
+letters = ["A", "S", "D", "F", "G", "H", "J", "K", "L"]
+turtle_list = []
+number_of_apples = len(letters)
+
+new_letter = "a"
+#functions
+
+def draw_apple(active_apple):
+  active_apple.shape(apple_image)
+  wn.update()
+
+def apple_fall(active_apple):
+  global apple, writer
+  active_apple.goto(apple_x,apple_y)
+  active_apple.hideturtle()
+
+#TODO Create a function that takes a turtle as its parameter and gives that turtle (apple)
+# a new location on the tree, only if the list of letters is not empty. 
+
+'''new_letter = letters.pop(rand.randint(0, len(letters)))'''
+
+
+apple_loc = 0,0
+
+def apple_change():
+  global apple_loc,apple
+  apple.clear()
+  writer.clear()
+  apple.goto(apple_loc)
+
+
+#   a123_apple_and_letters.py
+#TODO Create a function that takes a turtle as its parameter and gives that turtle (apple)
+# a new location on the tree, only if the list of letters is not empty. 
+
+def apple_todo_1(active_apple):
+  if letters > 0:
+    active_apple.goto(rand.randint(-50, 50))(rand.randint(-50, 50))
+
+#TODO Create a function that draws a new letter from the letter list.
+
+def letter_draw():
+  if letters > 0:
+    new_letter = rand.choice(letters)
+    letters.remove(new_letter)
+    writer.write(new_letter, font=("Arial", 50, "bold"))
+
+#TODO Create a function that takes a turtle (apple) as its parameter
+# and set that turtle to be shaped by the image file, call the letter drawing function,
+# and update the Screen
+
+#TODO Iterate over the numbers from 0 to the number of apples, creating that many turtles
+# calling your function that resets the apples by giving them a new random location
+# add the new apples to a list of apples to be used in the rest of the program.
+# The loop below executes the correct number of times by using the range() function
+# to create a list of numbers to iterate over.
+for i in range(0, number_of_apples):
+  i = 1
+  #Your code here
+
+#TODO Create a function that takes a letter as its parameter, retrieve a
+# random turtle (apple) and causes the turtle (apple) to drop from the tree and the letter 
+# to disappear. Call the apple reseting function.
+
+#TODO define a function per letter that you will use in your program. Each function should check
+# to see if the given letter is in the list of letters; if it is, it should drop an apple at random.
+
+#TODO use the onkeypress method of wn to correlate the functions you defined above with each
+# of the letters that the user might type.
+# onkeypress requires that you name one function that must take
+# no arguments to be called when the specified key is pressed.
+
+wn.onkeypress(apple_fall, new_letter)
+wn.listen()
+wn.mainloop()
