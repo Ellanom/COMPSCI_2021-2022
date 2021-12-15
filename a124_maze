@@ -1,0 +1,41 @@
+#a124
+import turtle as trt
+import random as rand
+
+wall_artist = trt.Turtle()
+wall_artist.hideturtle()
+wall_artist.pensize(5)
+wall_artist.speed(5)
+
+wall_count = 20
+wall_length = 20
+wall_increase = 20
+wall_color = "black"
+wall_artist.pencolor(wall_color)
+
+path_width = wall_length*2
+
+for i in range(wall_count):
+    if i < 4:
+        wall_artist.right(90)
+        wall_artist.forward(10)
+        wall_artist.penup()
+        wall_artist.forward(path_width)
+        wall_artist.pendown()
+        wall_artist.forward(wall_length + path_width)
+    else:
+        wall_artist.right(90)
+        wall_artist.forward(10)
+        wall_artist.penup()
+        wall_artist.forward(path_width)
+        wall_artist.pendown()
+        wall_artist.forward(40)
+        wall_artist.right(90)
+        wall_artist.forward(path_width)
+        wall_artist.back(path_width)
+        wall_artist.left(90)
+        wall_artist.forward(wall_length)
+    wall_length = wall_length + wall_increase
+
+wn = trt.Screen()
+wn.mainloop()
