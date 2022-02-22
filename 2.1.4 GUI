@@ -1,0 +1,59 @@
+#GUI
+
+import tkinter as tk
+import tkinter.ttk as ttk
+
+username = ''
+password = 'what'
+
+def test_my_button():
+    frame_auth.tkraise()
+    password = ent_password.get()
+    lbl_auth.config(text=password, font='Arial')()
+    
+root = tk.Tk()
+root.wm_geometry("300x200")
+root2 = tk.Tk()
+root2.wm_geometry('300x200')
+
+oldtitle = root.title()
+root.title('Authorization')
+
+frame_login = tk.Frame(root)
+frame_login.grid(row=0, column=0, sticky='news')
+
+lbl_username = tk.Label(frame_login, font='Courier', text='Username:').pack()
+ent_username = tk.Entry(frame_login, bd=3)
+ent_username.pack(pady=5)
+
+lbl_password = tk.Label(frame_login, font='Courier', text='Password:').pack()
+ent_password = tk.Entry(frame_login, bd=3, show='*')
+ent_password.pack(pady=5)
+
+btn_login = tk.Button(frame_login, text='Login', command=test_my_button).pack()
+
+frame_auth = tk.Frame(root)
+frame_auth.grid(row=0, column=0, sticky='news')
+
+lbl_auth = tk.Label(frame_auth, font='Courier', text=password)
+lbl_auth.pack()
+
+frame_login.tkraise()
+
+red_frame = ttk.Style(root2)
+red_frame.configure('Danger.TFrame', background='red')
+ttk.Frame(root2, width=175, height=100, style='Danger.TFrame').grid(row=2, column=0, sticky='news')
+
+blue_frame = ttk.Style(root2)
+blue_frame.configure('Ocean.TFrame', background='blue')
+ttk.Frame(root2, width=175, height=100, style='Ocean.TFrame').grid(row=0, column=0, sticky='news')
+
+green_frame = ttk.Style(root2)
+green_frame.configure('Grass.TFrame', background='lime green')
+ttk.Frame(root2, width=150, height=100, style='Grass.TFrame').grid(row=0, column=2, sticky='news')
+
+yellow_frame = ttk.Style(root2)
+yellow_frame.configure('Sun.TFrame', background='yellow')
+ttk.Frame(root2, width=150, height=100, style='Sun.TFrame').grid(row=2, column=2, sticky='news')
+
+root.mainloop()
