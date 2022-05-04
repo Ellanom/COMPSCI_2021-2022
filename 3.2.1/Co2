@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import math as math
+
+co2_data = pd.read_csv("co2_data.csv", header=0)   # identify the header row
+
+print(co2_data)
+
+co2_data['Average'] = co2_data['Average'].replace(-99.99, math.nan)
+
+print(co2_data)
+
+co2_data.dropna(subset=['Average'], inplace=True)
+
+print(co2_data)
+
+# TODO #2: Use matplotlib to make a line graph
+plt.plot(co2_data['decimal_year'], co2_data['Average'], color='gray')
+plt.ylabel('Decimal years')
+plt.xlabel('Average')
+plt.title('Change in CO2')
+plt.show()
